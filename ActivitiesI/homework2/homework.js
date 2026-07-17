@@ -242,7 +242,7 @@ for (let i = 0; i < 10; i++) {
   numero += 2;
  tabla.push(numero)
   if (numero === i) {
- return "Se interrumpio la ejecucion"}
+ return "Se interrumpió la ejecución"}
 } return tabla;
 }
 
@@ -253,6 +253,15 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+const tabla = []
+  
+for (let i = 0; i < 10; i++) {
+  if (i===5){
+    continue
+  }
+  numero += 2;
+  tabla.push(numero) 
+} return tabla;
 }
 
 
