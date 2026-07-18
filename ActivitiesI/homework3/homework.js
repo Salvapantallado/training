@@ -39,7 +39,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-  return objetoMisterioso.numeroMisteriso * 5;
+  return objetoMisterioso.numeroMisterioso * 5;
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -81,8 +81,8 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-if (objeto[propiedad] === "key")
-  return true; {
+if (objeto[propiedad]) {
+  return true;
   } else {
   return false;
 }
@@ -93,12 +93,19 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
+  if(usuario.password === password){
+    return true
+  } else {
+    return false
+  }
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
-  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
+  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
+    usuario.password = nuevaPassword
+    return usuario
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -106,6 +113,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // // Tu código:
+  usuario['amigos'].push(nuevoAmigo)
+  return usuario
 }
 
 function pasarUsuarioAPremium(usuarios) {
@@ -114,6 +123,15 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
+
+    //comenzar con un if - bucle for para modificar los valores uno por uno
+    for (let i = 0; i < usuarios.length; i++) {
+      const element = usuarios[i];
+      //usuarios[i] = element = { esPremium: false }
+      if(element.esPremium === false )
+      element.esPremium = true
+    }
+   return usuarios
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -123,6 +141,15 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+ 
+  //acceder al objeto + acceder al arreglo "posts" + acceder al valor de "likes" = devolver likes
+
+  var sumaDeLikes = 0
+  for (let i = 0; i < usuario.posts.length; i++) {
+    const element = usuario.posts[i];
+    sumaDeLikes += element.likes
+  }
+  return sumaDeLikes
 }
 
 function agregarMetodoCalculoDescuento(producto) {
